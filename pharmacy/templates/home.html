@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pharmacy Home</title>
+  </head>
+  <body>
+    <h1>Pharmacy Home</h1>
+    <h2>Medicines</h2>
+    <ul>
+      {% for medicine in medicines %}
+      <li>
+        <strong>{{ medicine.name }}</strong><br />
+        Description: {{ medicine.description }}<br />
+        Quantity: {{ medicine.quantity }}<br />
+        Price: {{ medicine.price }}
+      </li>
+      {% empty %}
+      <li>No medicines available.</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'prescriptions' %}">View Prescriptions</a>
+  </body>
+</html>

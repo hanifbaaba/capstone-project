@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prescriptions</title>
+  </head>
+  <body>
+    <h1>Prescriptions</h1>
+    <ul>
+      {% for prescription in prescriptions %}
+      <li>
+        <strong>Patient: {{ prescription.patient_name }}</strong><br />
+        Medicine: {{ prescription.medicine.name }}<br />
+        Quantity: {{ prescription.quantity }}<br />
+        Date Issued: {{ prescription.date_issued }}
+      </li>
+      {% empty %}
+      <li>No prescriptions available.</li>
+      {% endfor %}
+    </ul>
+    <a href="{% url 'home' %}">Back to Home</a>
+  </body>
+</html>
